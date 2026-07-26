@@ -8,18 +8,18 @@
 
 #include <linux/alarmtimer.h>
 #include <linux/reboot.h>
-#include "../../../../kernel-5.15/drivers/power/supply/charger_class.h"
-#include "../../../../kernel-5.15/drivers/power/supply/adapter_class.h"
-#include "../../../../kernel-5.15/drivers/power/supply/mtk_charger_algorithm_class.h"
+#include "../../../../../kernel-5.15/drivers/power/supply/charger_class.h"
+#include "../../../../../kernel-5.15/drivers/power/supply/adapter_class.h"
+#include "../../../../../kernel-5.15/drivers/power/supply/mtk_charger_algorithm_class.h"
 #include <linux/power_supply.h>
-#include "../../../../kernel-5.15/drivers/power/supply/mtk_smartcharging.h"
+#include "../../../../../kernel-5.15/drivers/power/supply/mtk_smartcharging.h"
 
 #ifdef CONFIG_OPLUS_MTK_DRM_GKI_NOTIFY_CHG
-#include "../../../../kernel-5.15/drivers/gpu/drm/mediatek/mediatek_v2/mtk_panel_ext.h"
-#include "../../../../kernel-5.15/drivers/gpu/drm/mediatek/mediatek_v2/mtk_disp_notify.h"
+#include "../../../../../kernel-5.15/drivers/gpu/drm/mediatek/mediatek_v2/mtk_panel_ext.h"
+#include "../../../../../kernel-5.15/drivers/gpu/drm/mediatek/mediatek_v2/mtk_disp_notify.h"
 #endif
 
-#include "../../../base/kernelFwUpdate/kernelFwUpdate.h"
+#include "../../../../../kernel-5.15/drivers//base/kernelFwUpdate/kernelFwUpdate.h"
 
 #include "../oplus_chg_core.h"
 #include "../op_wlchg_v2/hal/oplus_chg_ic.h"
