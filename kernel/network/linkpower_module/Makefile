@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0-only
 # Copyright (C) 2018-2020 Oplus. All rights reserved.
 
+export CHIPSET_COMPANY=MTK
+
 ifeq ($(CHIPSET_COMPANY), QCOM)
 KBUILD_OPTIONS += CONFIG_OPLUS_FEATURE_QCOM=m
 else ifeq ($(CHIPSET_COMPANY), MTK)
