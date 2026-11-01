@@ -8137,7 +8137,7 @@ static void oplus_chg_variables_init(struct oplus_chg_chip *chip)
 	chip->real_charger_type = POWER_SUPPLY_TYPE_UNKNOWN;
 	chip->charger_volt = 0;
 	chip->vchg_status = CHARGER_STATUS__GOOD;
-	chip->prop_status = POWER_SUPPLY_STATUS_NOT_CHARGING;
+	chip->prop_status = POWER_SUPPLY_STATUS_DISCHARGING;
 	chip->sw_full_count = 0;
 	chip->sw_full = false;
 	chip->full_data.vbat_counts_hw = 0;
@@ -10050,7 +10050,16 @@ static void oplus_chg_update_ui_soc(struct oplus_chg_chip *chip)
 		chip->keep_prop_status = chip->prop_status;
 	} else {
 		cnt = 0;
-		chip->prop_status = POWER_SUPPLY_STATUS_NOT_CHARGING;
+		/*
+		 * No charger (or wireless) present means the battery is simply
+		 * discharging. Reporting NOT_CHARGING here makes userspace show
+		 * AOSP's "connected, not charging" text (and a plug icon) even
+		 * when nothing is plugged in.
+		 */
+		if (chip->charger_exist || oplus_wpc_get_wireless_charge_start())
+			chip->prop_status = POWER_SUPPLY_STATUS_NOT_CHARGING;
+		else
+			chip->prop_status = POWER_SUPPLY_STATUS_DISCHARGING;
 		soc_up_count = 0;
 		allow_uisoc_down = false;
 		if (chip->smooth_soc <= chip->ui_soc || vbatt_too_low) {
