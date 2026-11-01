@@ -740,7 +740,6 @@ static const struct proc_ops proc_work_mode_ops = {
 	.proc_read  = proc_charge_pump_work_mode_read,
 	.proc_write = proc_charge_pump_work_mode_write,
 	.proc_open  = simple_open,
-	.proc_lseek = seq_lseek,
 };
 
 static const struct proc_ops proc_register_ops = {

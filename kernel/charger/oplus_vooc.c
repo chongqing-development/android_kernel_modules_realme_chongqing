@@ -2274,7 +2274,6 @@ static const struct file_operations fastchg_fw_update_proc_fops = {
 static const struct proc_ops fastchg_fw_update_proc_fops = {
 	.proc_write = proc_fastchg_fw_update_write,
 	.proc_read = proc_fastchg_fw_update_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 static int init_proc_fastchg_fw_update(struct oplus_vooc_chip *chip)

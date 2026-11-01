@@ -9421,7 +9421,6 @@ static const struct proc_ops oplus_chg_wls_proc_deviated_ops = {
 	.proc_read = oplus_chg_wls_proc_deviated_read,
 	.proc_write = NULL,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -9527,7 +9526,6 @@ static const struct proc_ops oplus_chg_wls_proc_tx_ops = {
 	.proc_read = oplus_chg_wls_proc_tx_read,
 	.proc_write = oplus_chg_wls_proc_tx_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -9598,7 +9596,6 @@ static const struct proc_ops oplus_chg_wls_proc_rx_ops = {
 	.proc_read = oplus_chg_wls_proc_rx_read,
 	.proc_write = oplus_chg_wls_proc_rx_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -9724,7 +9721,6 @@ static const struct proc_ops oplus_chg_wls_proc_user_sleep_mode_ops = {
 	.proc_read = oplus_chg_wls_proc_user_sleep_mode_read,
 	.proc_write = oplus_chg_wls_proc_user_sleep_mode_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -9809,7 +9805,6 @@ static const struct proc_ops oplus_chg_wls_proc_idt_adc_test_ops = {
 	.proc_read = oplus_chg_wls_proc_idt_adc_test_read,
 	.proc_write = oplus_chg_wls_proc_idt_adc_test_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -9859,7 +9854,6 @@ static const struct proc_ops oplus_chg_wls_proc_rx_power_ops = {
 	.proc_read = oplus_chg_wls_proc_rx_power_read,
 	.proc_write = oplus_chg_wls_proc_rx_power_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -9909,7 +9903,6 @@ static const struct proc_ops oplus_chg_wls_proc_tx_power_ops = {
 	.proc_read = oplus_chg_wls_proc_tx_power_read,
 	.proc_write = oplus_chg_wls_proc_tx_power_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -9962,7 +9955,6 @@ static const struct proc_ops oplus_chg_wls_proc_rx_version_ops = {
 	.proc_read = oplus_chg_wls_proc_rx_version_read,
 	.proc_write = oplus_chg_wls_proc_rx_version_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -10015,7 +10007,6 @@ static const struct proc_ops oplus_chg_wls_proc_tx_version_ops = {
 	.proc_read = oplus_chg_wls_proc_tx_version_read,
 	.proc_write = oplus_chg_wls_proc_tx_version_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -10098,7 +10089,6 @@ static const struct proc_ops oplus_chg_wls_proc_ftm_mode_ops = {
 	.proc_read = oplus_chg_wls_proc_ftm_mode_read,
 	.proc_write = oplus_chg_wls_proc_ftm_mode_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 

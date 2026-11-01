@@ -1870,7 +1870,6 @@ static const struct file_operations p9418_add_log_proc_fops = {
 static const struct proc_ops p9418_add_log_proc_fops = {
 	.proc_write = p9418_reg_store,
 	.proc_read = p9418_reg_show,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -1926,7 +1925,6 @@ static const struct file_operations p9418_data_log_proc_fops = {
 #else
 static const struct proc_ops p9418_data_log_proc_fops = {
 	.proc_write = p9418_data_log_write,
-	.proc_lseek = seq_lseek,
 };
 #endif
 

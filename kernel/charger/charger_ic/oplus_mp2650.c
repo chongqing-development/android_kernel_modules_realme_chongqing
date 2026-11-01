@@ -3004,7 +3004,6 @@ static const struct file_operations mp2650_write_log_proc_fops = {
 #else
 static const struct proc_ops mp2650_write_log_proc_fops = {
 	.proc_write = mp2650_data_log_write,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -3105,7 +3104,6 @@ static const struct file_operations mp2650_read_log_proc_fops = {
 static const struct proc_ops mp2650_read_log_proc_fops = {
 	.proc_read = mp2650_reg_show,
 	.proc_write = mp2650_reg_store,
-	.proc_lseek = seq_lseek,
 };
 #endif
 static void init_mp2650_read_log(void)

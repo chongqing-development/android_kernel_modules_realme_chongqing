@@ -1250,7 +1250,6 @@ static const struct file_operations batt_param_noplug_proc_fops = {
 static const struct proc_ops batt_param_noplug_proc_fops = {
 	.proc_write = proc_batt_param_noplug_write,
 	.proc_read = proc_batt_param_noplug_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -1325,7 +1324,6 @@ static const struct file_operations tbatt_pwroff_proc_fops = {
 static const struct proc_ops tbatt_pwroff_proc_fops = {
 	.proc_write = proc_tbatt_pwroff_write,
 	.proc_read = proc_tbatt_pwroff_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -1400,7 +1398,6 @@ static const struct file_operations chg_log_proc_fops = {
 static const struct proc_ops chg_log_proc_fops = {
 	.proc_write = chg_log_write,
 	.proc_read = chg_log_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -1725,7 +1722,6 @@ static const struct file_operations chg_critical_log_proc_fops = {
 static const struct proc_ops chg_critical_log_proc_fops = {
 	.proc_write = critical_log_write,
 	.proc_read = critical_log_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -1777,7 +1773,6 @@ static const struct file_operations rtc_reset_det_fops = {
 #else
 static const struct proc_ops rtc_reset_det_fops = {
 	.proc_read = rtc_reset_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -1823,7 +1818,6 @@ static const struct file_operations vbat_low_det_fops = {
 #else
 static const struct proc_ops vbat_low_det_fops = {
 	.proc_read = vbat_low_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -1932,7 +1926,6 @@ static const struct file_operations proc_charger_factorymode_test_ops = {
 static const struct proc_ops proc_charger_factorymode_test_ops = {
 	.proc_write = proc_charger_factorymode_test_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -2062,7 +2055,6 @@ static const struct file_operations proc_integrate_gauge_fcc_flag_ops = {
 static const struct proc_ops proc_integrate_gauge_fcc_flag_ops = {
 	.proc_read = proc_integrate_gauge_fcc_flag_read,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -2193,7 +2185,6 @@ static const struct file_operations proc_force_current_limit_ops = {
 static const struct proc_ops proc_force_current_limit_ops = {
 	.proc_write = proc_force_current_limit_write,
 	.proc_read = proc_force_current_limit_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -2272,7 +2263,6 @@ static const struct file_operations hmac_proc_fops = {
 static const struct proc_ops hmac_proc_fops = {
 	.proc_write = proc_hmac_write,
 	.proc_read = proc_hmac_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -2548,7 +2538,6 @@ static const struct file_operations test_external_hmac_proc_fops = {
 static const struct proc_ops test_external_hmac_proc_fops = {
 	.proc_write = proc_start_test_external_write,
 	.proc_read = proc_get_hmac_test_result_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -2590,7 +2579,6 @@ static const struct file_operations external_hmac_status_proc_fops = {
 #else
 static const struct proc_ops external_hmac_status_proc_fops = {
 	.proc_read = proc_external_hmac_status_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -2658,7 +2646,6 @@ static const struct file_operations chg_ctl_proc_fops = {
 #else
 static const struct proc_ops chg_ctl_proc_fops = {
 	.proc_read = proc_chg_ctl,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -2705,7 +2692,6 @@ static const struct file_operations cp_vbat_deviation_proc_fops = {
 #else
 static const struct proc_ops cp_vbat_deviation_proc_fops = {
         .proc_read = proc_cp_vbat_deviation,
-        .proc_lseek = seq_lseek,
 };
 #endif
 
@@ -2910,7 +2896,6 @@ static const struct file_operations ui_soc_decimal_ops = {
 static const struct proc_ops ui_soc_decimal_ops = {
 	.proc_write = proc_ui_soc_decimal_write,
 	.proc_read = proc_ui_soc_decimal_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 

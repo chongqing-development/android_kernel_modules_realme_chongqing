@@ -12701,7 +12701,6 @@ static const struct proc_ops proc_debug_reg_ops =
 	.proc_read = proc_debug_reg_read,
 	.proc_write  = proc_debug_reg_write,
 	.proc_open  = simple_open,
-	.proc_lseek = seq_lseek,
 };
 
 #ifdef WLS_QI_DEBUG
@@ -12759,7 +12758,6 @@ static const struct proc_ops proc_icl_ops =
 	.proc_read = proc_icl_read,
 	.proc_write  = proc_icl_write,
 	.proc_open  = simple_open,
-	.proc_lseek = seq_lseek,
 };
 
 static ssize_t proc_fcc_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
@@ -12816,7 +12814,6 @@ static const struct proc_ops proc_fcc_ops =
 	.proc_read = proc_fcc_read,
 	.proc_write  = proc_fcc_write,
 	.proc_open  = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif /*WLS_QI_DEBUG*/
 #endif

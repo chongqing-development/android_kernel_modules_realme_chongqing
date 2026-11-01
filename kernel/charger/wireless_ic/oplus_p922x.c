@@ -5474,7 +5474,6 @@ static const struct file_operations p922x_add_log_proc_fops = {
 static const struct proc_ops p922x_add_log_proc_fops = {
 	.proc_write = p922x_reg_store,
 	.proc_read = p922x_reg_show,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -5531,7 +5530,6 @@ static const struct file_operations p922x_data_log_proc_fops = {
 #else
 static const struct proc_ops p922x_data_log_proc_fops = {
 	.proc_write = p922x_data_log_write,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -5772,7 +5770,6 @@ static const struct proc_ops proc_wireless_voltage_rect_ops =
 	.proc_read = proc_wireless_voltage_rect_read,
 	.proc_write  = proc_wireless_voltage_rect_write,
 	.proc_open  = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -5838,7 +5835,6 @@ static const struct proc_ops proc_wireless_current_out_ops =
 	.proc_read = proc_wireless_current_out_read,
 	.proc_write  = proc_wireless_current_out_write,
 	.proc_open  = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -5901,7 +5897,6 @@ static const struct proc_ops proc_wireless_ftm_mode_ops =
 	.proc_read = proc_wireless_ftm_mode_read,
 	.proc_write  = proc_wireless_ftm_mode_write,
 	.proc_open  = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -5956,7 +5951,6 @@ static const struct proc_ops proc_wireless_rx_voltage = {
 	.proc_read = proc_wireless_rx_voltage_read,
 	.proc_write = proc_wireless_rx_voltage_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6047,7 +6041,6 @@ static const struct proc_ops proc_wireless_tx_ops = {
 	.proc_read = proc_wireless_tx_read,
 	.proc_write = proc_wireless_tx_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6133,7 +6126,6 @@ static const struct proc_ops proc_wireless_epp_ops = {
 	.proc_read = proc_wireless_epp_read,
 	.proc_write = proc_wireless_epp_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6231,7 +6223,6 @@ static const struct proc_ops proc_wireless_charge_pump_ops = {
 	.proc_read = proc_wireless_charge_pump_read,
 	.proc_write = proc_wireless_charge_pump_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6291,7 +6282,6 @@ static const struct proc_ops proc_wireless_bat_mult_ops = {
 	.proc_read = proc_wireless_bat_mult_read,
 	.proc_write = proc_wireless_bat_mult_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6330,7 +6320,6 @@ static const struct proc_ops proc_wireless_deviated_ops = {
 	.proc_read = proc_wireless_deviated_read,
 	.proc_write = NULL,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6404,7 +6393,6 @@ static const struct proc_ops proc_wireless_rx_ops = {
 	.proc_read = proc_wireless_rx_read,
 	.proc_write = proc_wireless_rx_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6508,7 +6496,6 @@ static const struct proc_ops proc_upgrade_firmware_ops = {
 	.proc_read = NULL,
 	.proc_write = proc_wireless_upgrade_firmware_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6568,7 +6555,6 @@ static const struct proc_ops proc_wireless_rx_freq_ops = {
 	.proc_read = proc_wireless_rx_freq_read,
 	.proc_write = proc_wireless_rx_freq_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6638,7 +6624,6 @@ static const struct proc_ops proc_wireless_w30w_time_ops = {
 	.proc_read = proc_wireless_w30w_time_read,
 	.proc_write = proc_wireless_w30w_time_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6744,7 +6729,6 @@ static const struct proc_ops proc_wireless_user_sleep_mode_ops = {
 	.proc_read = proc_wireless_user_sleep_mode_read,
 	.proc_write = proc_wireless_user_sleep_mode_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
@@ -6821,7 +6805,6 @@ static const struct proc_ops proc_wireless_idt_adc_test_ops = {
 	.proc_read = proc_wireless_idt_adc_test_read,
 	.proc_write = proc_wireless_idt_adc_test_write,
 	.proc_open = simple_open,
-	.proc_lseek = seq_lseek,
 };
 #endif
 

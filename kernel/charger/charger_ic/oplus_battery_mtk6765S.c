@@ -4932,7 +4932,6 @@ static const struct proc_ops gsm_pmic_pwm_ctrl =
 {
 	.proc_write = gsm_pmic_pwm_node_write,
 	.proc_read = gsm_pmic_pwm_node_read,
-	.proc_lseek = seq_lseek,
 };
 #endif
 
