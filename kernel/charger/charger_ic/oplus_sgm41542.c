@@ -79,6 +79,7 @@ struct chip_sgm41542 {
 	struct delayed_work	init_work;
 	struct delayed_work	bc12_retry_work;
 	struct delayed_work	qc_detect_work;
+	struct delayed_work	wl_timeout_work;
 	bool support_hvdcp;
 	bool is_hvdcp;
 	bool pre_is_hvdcp;
@@ -2073,6 +2074,23 @@ static void oplus_chg_awake_init(struct chip_sgm41542 *chip)
 	return;
 }
 
+/*
+ * "split chg wakelock" used to be taken whenever VBUS was good and only
+ * released on unplug, which kept the system out of suspend for the whole
+ * time a cable was attached. Bound every hold so an idle (screen off)
+ * charger no longer prevents suspend.
+ */
+#define OPLUS_CHG_WAKELOCK_HOLD_MS	30000
+
+static void oplus_chg_wakelock_timeout_work(struct work_struct *work)
+{
+	struct delayed_work *dwork = to_delayed_work(work);
+	struct chip_sgm41542 *chip =
+		container_of(dwork, struct chip_sgm41542, wl_timeout_work);
+
+	oplus_chg_wakelock(chip, false);
+}
+
 static void oplus_chg_wakelock(struct chip_sgm41542 *chip, bool awake)
 {
 	static bool pm_flag = false;
@@ -2083,8 +2101,11 @@ static void oplus_chg_wakelock(struct chip_sgm41542 *chip, bool awake)
 	if (awake && !pm_flag) {
 		pm_flag = true;
 		__pm_stay_awake(chip->suspend_ws);
+		schedule_delayed_work(&chip->wl_timeout_work,
+				      msecs_to_jiffies(OPLUS_CHG_WAKELOCK_HOLD_MS));
 		pr_err("[%s] true\n", __func__);
 	} else if (!awake && pm_flag) {
+		cancel_delayed_work(&chip->wl_timeout_work);
 		__pm_relax(chip->suspend_ws);
 		pm_flag = false;
 		pr_err("[%s] false\n", __func__);
@@ -2921,6 +2942,7 @@ static int sgm41542_charger_probe(struct i2c_client *client,
 	INIT_DELAYED_WORK(&chip->bc12_retry_work, sgm41542_bc12_retry_work);
 	INIT_DELAYED_WORK(&chip->init_work, sgm41542_init_work_handler);
 	INIT_DELAYED_WORK(&chip->qc_detect_work, sgm41542_qc_detect_work);
+	INIT_DELAYED_WORK(&chip->wl_timeout_work, oplus_chg_wakelock_timeout_work);
 
 	if (strcmp(chip->chg_dev_name, "primary_chg") == 0) {
 		schedule_delayed_work(&chip->init_work, msecs_to_jiffies(14000));

@@ -7507,6 +7507,9 @@ static int chg_mtk_drm_notifier_callback(struct notifier_block *nb, unsigned lon
 			pr_err("%s: receives wrong data BLANK:%d\n", __func__, blank);
 		}
 	}
+	/* Re-evaluate the charger wakelock on every display on/off transition. */
+	if (g_charger_chip)
+		oplus_chg_set_awake(g_charger_chip, g_charger_chip->led_on);
 	return 0;
 }
 #else
@@ -8563,7 +8566,13 @@ void oplus_charger_detect_check(struct oplus_chg_chip *chip)
 	static int charger_flag = 0;
 #endif
 	if (chip->chg_ops->check_chrdet_status()) {
-		oplus_chg_set_awake(chip, true);
+		/*
+		 * Only keep the AP awake while the display is on. With the screen
+		 * off the charging algorithm is driven by the charger thread and
+		 * its alarm timer, so holding the wakelock permanently would keep
+		 * the system out of suspend as long as a cable is attached.
+		 */
+		oplus_chg_set_awake(chip, chip->led_on);
 		if (chip->wireless_support && (oplus_wpc_get_fw_updating() || oplus_chg_is_wls_fw_upgrading())) {
 			return;
 		}
